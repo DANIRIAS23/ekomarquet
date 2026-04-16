@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Saludo</title>
+</head>
+<body>
+
+    <h2>Formulario de saludo</h2>
+
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" id="nombre">
+    <button onclick="saludar()">Saludar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function saludar() {
+            var nombre = document.getElementById("nombre").value;
+
+            if (nombre.trim() === "") {
+                document.getElementById("resultado").innerHTML = "Por favor, escribe tu nombre.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Hola, " + nombre + " ¡Bienvenido a mi sitio web!";
+            }
+        }
+    </script>
+
+</body>
+</html>

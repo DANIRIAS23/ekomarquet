@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Operaciones básicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .calculadora {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 200px;
+            height: 30px;
+            margin: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculadora">
+        <h2>Calculadora</h2>
+
+        <input type="number" id="num1" placeholder="Número 1">
+        <br>
+        <input type="number" id="num2" placeholder="Número 2">
+        <br>
+
+        <div>
+            <button onclick="calcular('+')">+</button>
+            <button onclick="calcular('-')">-</button>
+            <button onclick="calcular('*')">*</button>
+            <button onclick="calcular('/')">/</button>
+        </div>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcular(operacion) {
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+            let resultado = 0;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                document.getElementById("resultado").innerText = "Ingresa ambos números";
+                return;
+            }
+
+            switch (operacion) {
+                case '+':
+                    resultado = n1 + n2;
+                    break;
+                case '-':
+                    resultado = n1 - n2;
+                    break;
+                case '*':
+                    resultado = n1 * n2;
+                    break;
+                case '/':
+                    if (n2 === 0) {
+                        document.getElementById("resultado").innerText = "No se puede dividir entre 0";
+                        return;
+                    }
+                    resultado = n1 / n2;
+                    break;
+            }
+
+            document.getElementById("resultado").innerText = "Resultado: " + resultado;
+        }
+    </script>
+
+</body>
+</html>
